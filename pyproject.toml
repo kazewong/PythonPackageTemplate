@@ -6,6 +6,38 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "pre-commit>=4.0.1",
-    "pyre-check>=0.9.23",
+    "pyright>=1.1.389",
     "ruff>=0.8.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pythonpackagetemplate",
+]
+
+[tool.uv.sources]
+pythonpackagetemplate = { workspace = true }
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.pyright]
+include = [
+    "src",
+    "tests",
+]
+pythonVersion = ">=3.11"
+
+typeCheckingMode = "strict"
+
+reportImportCycles = false
+
+reportPrivateUsage = false
+
+# enable these for now as none of raise any
+# errors anyway
+reportCallInDefaultInitializer = true
+reportImplicitStringConcatenation = true
