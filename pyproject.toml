@@ -7,7 +7,19 @@ requires-python = ">=3.11"
 dependencies = [
     "pre-commit>=4.0.1",
     "pyright>=1.1.389",
+    "pytest>=8.3.3",
     "ruff>=0.8.0",
+]
+
+[project.optional-dependencies]
+docs = [
+    "mkdocs-gen-files",
+    "mkdocs-jupyter",
+    "mkdocs-literate-nav",
+    "mkdocs-material",
+    "mkdocs",
+    "mkdocstrings[python]",
+    "pymdown-extensions",
 ]
 
 [dependency-groups]
@@ -29,15 +41,6 @@ include = [
     "src",
     "tests",
 ]
-pythonVersion = ">=3.11"
-
-typeCheckingMode = "strict"
-
-reportImportCycles = false
-
-reportPrivateUsage = false
-
-# enable these for now as none of raise any
-# errors anyway
-reportCallInDefaultInitializer = true
-reportImplicitStringConcatenation = true
+exclude = [
+    "docs"
+]
